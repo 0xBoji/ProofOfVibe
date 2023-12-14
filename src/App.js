@@ -35,3 +35,4 @@ const MainnetWidgets = {
 
 export const Widgets =
   NetworkId === "testnet" ? TestnetWidgets : MainnetWidgets;
+update
