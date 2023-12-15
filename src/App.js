@@ -179,5 +179,5 @@ function App(props) {
     </div>
   );
 }
-updatesUpdateUpdaUpdatete
+updatesUpdateUpdateUpdaUpdatete
 export default App;
