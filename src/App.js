@@ -157,6 +157,46 @@ function App(props) {
     documentationHref,
   };
 
+  const refreshAllowance = useCallback(async () => {
+    alert(
+      "You're out of access key allowance. Need sign in again to refresh it"
+    );
+    await logOut();
+    requestSignIn();
+  }, [logOut, requestSignIn]);
+  refreshAllowanceObj.refreshAllowance = refreshAllowance;
+
+  useEffect(() => {
+    if (!near) {
+      return;
+    }
+    setSignedIn(!!accountId);
+    setSignedAccountId(accountId);
+    setConnected(true);
+  }, [near, accountId]);
+
+  useEffect(() => {
+    setAvailableStorage(
+      account.storageBalance
+        ? Big(account.storageBalance.available).div(utils.StorageCostPerByte)
+        : Big(0)
+    );
+  }, [account]);
+
+  const passProps = {
+    refreshAllowance: () => refreshAllowance(),
+    setWidgetSrc,
+    signedAccountId,
+    signedIn,
+    connected,
+    availableStorage,
+    widgetSrc,
+    logOut,
+    requestSignIn,
+    widgets: Widgets,
+    documentationHref,
+  };
+
   return (
     <div className="App">
       <EthersProviderContext.Provider value={ethersProviderContext}>
@@ -179,5 +219,5 @@ function App(props) {
     </div>
   );
 }
-updatesUpdateUpdUpdateateUpUpdatedaUpdatete
+
 export default App;
