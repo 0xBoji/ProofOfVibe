@@ -15,7 +15,7 @@ const TestnetWidgets = {
   profilePage: "eugenethedream/widget/Profile",
   profileName: "eugenethedream/widget/ProfileName",
   notificationButton: "eugenethedream/widget/NotificationButton",
-};
+};update
 
 const MainnetWidgets = {
   image: "mob.near/widget/Image",
